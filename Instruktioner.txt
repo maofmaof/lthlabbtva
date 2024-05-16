@@ -1,0 +1,13 @@
+**För G**
+
+-   Sätta upp ett React projekt med create-react-app eller Vite
+
+-   Minst 5 funktionskomponenter
+
+-   Hämta data från extern API (för inspiration, se: [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis))  
+
+    Använd fetch, axios, react-query eller annat bibliotek.
+
+-   Styla componenter med "css-in-js" (använd bibliotek som tex [Styled Components](https://styled-components.com/) eller [Emotion](https://emotion.sh/docs/introduction)) 
+
+-   Använd minst 2 eller om så önskas fler av följande hooks: useReducer, useContext, useMemo och useCallback    
