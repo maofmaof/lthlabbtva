@@ -22,7 +22,7 @@ function FoodCard(props) {
                 <H2>Difficulty : Random name</H2>
             </DivItem>
             <DivItem>
-                <IMG src="https://cdn.dummyjson.com/recipe-images/1.webp"></IMG>
+                <IMG src={props.image}></IMG>
             </DivItem>
             <DivItem> <H3>{renderRecipeArr(props.ingredients)}</H3></DivItem>
             <DivItem>  <H3>{renderRecipeArr(props.instructions)}</H3> </DivItem>
@@ -38,7 +38,7 @@ const Div = styled.div`
 display : flex;
 flex-wrap: wrap;
 
-width: 80%;
+width: 50%;
 margin: auto;
 `
 const DivItem = styled.div`
@@ -53,7 +53,7 @@ const H3 = styled.h3`
 `
 const IMG = styled.img`
 width: 400px;
-height: 400px;
+height: 300px;
 `
 const LI = styled.li`
 font-size: 20px;

@@ -13,25 +13,25 @@ function Layout() {
     useEffect(() => {
         fetchRecipes();
     }, [])
+
     async function fetchRecipes() {
-        let randomNr = Math.floor(Math.random() * 10) + 1
-        const response = await fetch("https://dummyjson.com/recipes/1")
+        let randomNr = Math.floor(Math.random() * 50) + 1
+        const response = await fetch("https://dummyjson.com/recipes/" + randomNr)
         const fetchedData = await response.json();
+        console.log(recipe)
         setRecipe(fetchedData)
         setIsLoading(false)
-    }
-
-    function fetchNewRecipe() {
-
     }
 
     return (
         <div style={{ margin: "auto", width: "max-content" }}>
             <Header />
-            {isLoading ? <h1>its loading....</h1> :  <>
-            <FoodCard ingredients={recipe.ingredients}
-                instructions={recipe.instructions}
-                image={recipe.image} /><AvailableRecipes /><button onClick={fetchNewRecipe()}>Fetch a new random recipe</button></> }          
+            {isLoading ? <h1>its loading....</h1> : <>
+                <FoodCard ingredients={recipe.ingredients}
+                    instructions={recipe.instructions}
+                    image={recipe.image} />
+                <button onClick={fetchRecipes}>new recipe</button>
+            </>}
             <Footer />
         </div>
     );
