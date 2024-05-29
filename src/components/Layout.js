@@ -1,9 +1,9 @@
 import Header from "./Header"
 import Footer from "./Footer"
 import FoodCard from "./FoodCard"
-import AvailableRecipes from "./AvailableRecipes"
+import ViewedRecipes from "./ViewedRecipes"
 import { useState, useEffect } from 'react';
-
+import styled from '@emotion/styled'
 
 function Layout() {
 
@@ -11,30 +11,40 @@ function Layout() {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        fetchRecipes();
+        fetchRecipe();
     }, [])
 
-    async function fetchRecipes() {
-        let randomNr = Math.floor(Math.random() * 50) + 1
+    async function fetchRecipe() {
+        let randomNr = Math.floor(Math.random() * 49) + 1
         const response = await fetch("https://dummyjson.com/recipes/" + randomNr)
         const fetchedData = await response.json();
-        console.log(recipe)
         setRecipe(fetchedData)
         setIsLoading(false)
     }
-
     return (
-        <div style={{ margin: "auto", width: "max-content" }}>
+        <div >
             <Header />
-            {isLoading ? <h1>its loading....</h1> : <>
-                <FoodCard ingredients={recipe.ingredients}
-                    instructions={recipe.instructions}
-                    image={recipe.image} />
-                <button onClick={fetchRecipes}>new recipe</button>
-            </>}
+            <ViewedRecipes recipe={recipe}/>
+            {isLoading ? <h1>Its loading....</h1> : <>
+                <FoodCard recipe={recipe} />
+                
+            </>
+            }
+            <Button onClick={fetchRecipe}>New recipe</Button>
             <Footer />
         </div>
     );
 }
-
+const Button = styled.button`
+  margin : 0 auto;
+  display: block;
+  padding: 25px;
+  background-color: yellow;
+  font-size: 25px;
+  border-radius: 35px;
+  
+  &:hover {
+    color: #414a4c;
+  }
+`
 export default Layout;
