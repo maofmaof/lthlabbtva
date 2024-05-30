@@ -2,14 +2,20 @@ import Header from "./Header"
 import Footer from "./Footer"
 import FoodCard from "./FoodCard"
 import ViewedRecipes from "./ViewedRecipes"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import styled from '@emotion/styled'
+
+export const ThemeContext = createContext();
 
 function Layout() {
 
     const [recipe, setRecipe] = useState({})
     const [isLoading, setIsLoading] = useState(true)
-
+    
+    const [toggleTheme, setToggleTheme] = useState(true)
+    function toggle() {
+        setToggleTheme(!toggleTheme)
+    }
     useEffect(() => {
         fetchRecipe();
     }, [])
@@ -23,8 +29,11 @@ function Layout() {
     }
     return (
         <div >
+            <ThemeContext.Provider value={toggleTheme}>
             <Header />
+            <Button onClick={toggle}>Lazy darkmode</Button>
             <ViewedRecipes recipe={recipe}/>
+            
             {isLoading ? <h1>Its loading....</h1> : <>
                 <FoodCard recipe={recipe} />
                 
@@ -32,6 +41,7 @@ function Layout() {
             }
             <Button onClick={fetchRecipe}>New recipe</Button>
             <Footer />
+            </ThemeContext.Provider>
         </div>
     );
 }

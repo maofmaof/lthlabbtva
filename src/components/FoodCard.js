@@ -1,9 +1,19 @@
 import styled from '@emotion/styled'
-
+import { useContext } from 'react';
+import { ThemeContext } from './Layout';
 function FoodCard(props) {
-    
+const color = useContext(ThemeContext)
+
+const Div = styled.div`
+display : flex;
+flex-wrap: wrap;
+background-color: ${color ? "black" : "white"};
+color: ${color ? "white" : "black" };
+width: 50%;
+margin: auto;
+`
     const recipeInfo = props.recipe;
-    
+
     function renderRecipeArr(arr) { //props
         return arr.map((ele, i) => {
             return <LI key={i}>{ele}</LI>
@@ -30,13 +40,6 @@ function FoodCard(props) {
 
 export default FoodCard;
 
-const Div = styled.div`
-display : flex;
-flex-wrap: wrap;
-
-width: 50%;
-margin: auto;
-`
 const DivItem = styled.div`
 width: 50%;
 box-sizing: border-box;

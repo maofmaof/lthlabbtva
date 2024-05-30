@@ -11,7 +11,7 @@ function ViewedRecipes(recipe) {
 
   return (
     <DIV >
-      <h1>Viewed recipes : {viewedRecipes.current}</h1>
+      <h1>Viewed recipes : {viewedRecipes.current} sort of correct...</h1>
     </DIV>
   );
 }
