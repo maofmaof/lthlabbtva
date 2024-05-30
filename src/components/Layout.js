@@ -13,6 +13,7 @@ function Layout() {
     const [isLoading, setIsLoading] = useState(true)
     
     const [toggleTheme, setToggleTheme] = useState(true)
+    
     function toggle() {
         setToggleTheme(!toggleTheme)
     }

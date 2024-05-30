@@ -7,8 +7,8 @@ const color = useContext(ThemeContext)
 const Div = styled.div`
 display : flex;
 flex-wrap: wrap;
-background-color: ${color ? "black" : "white"};
-color: ${color ? "white" : "black" };
+background-color: ${color ? "white" : "black"};
+color: ${color ? "black" : "white" };
 width: 50%;
 margin: auto;
 `

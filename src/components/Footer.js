@@ -11,8 +11,8 @@ function Footer() {
   margin: auto;
   height: 100px;
   font-family : 'EB Garamond';
-  background-color : ${color ? "black" : "white"};
-  color : ${color ? "white" : "dark"};
+  background-color : ${color ? "white" : "black"};
+  color : ${color ? "dark" : "white"};
   `
   return (
     <Div>
